@@ -12,5 +12,6 @@ class Product
   validates :sku, presence: true
   validates :description, presence: true
   validates :product_type, presence: true
+  validates :sku, uniqueness: true
 
 end
