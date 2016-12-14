@@ -23,7 +23,7 @@ class Api::V1::ProductsControllerTest < ActionController::TestCase
   test "GET #index WHEN Product Type is provided should only show Products of that type" do
     get :index, product_type_slug: @product.type
     products_response = JSON.parse(response.body, symbolize_names: true)
-    matching_products = Product.all.select { |product| product.product_type == product.type }
+    matching_products = Product.all.select { |product| product.type == product.type }
     assert_equal matching_products.count, products_response.count
   end
   

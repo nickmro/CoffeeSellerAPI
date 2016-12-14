@@ -13,18 +13,12 @@ class ProductTest < ActiveSupport::TestCase
     product.save
     assert product.errors.keys.include?(:description)
   end
-  
-  test "A Product must have a Product Type" do
-    product = Product.create
-    product.save
-    assert product.errors.keys.include?(:product_type)
-  end
 
   test "A Product's SKU must be unique" do
     product_type = FactoryGirl.create(:large_machine_product_type)
-    product = Product.create(description: 'product description', sku: 'sku', type: product_type)
+    product = Product.create(description: 'product description', sku: 'sku')
     product.save
-    product_2 = Product.create(description: 'product description', sku: 'sku', type: product_type)
+    product_2 = Product.create(description: 'product description', sku: 'sku')
     product_2.save
     assert product_2.errors.keys.include?(:sku)
   end

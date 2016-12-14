@@ -25,6 +25,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'mongoid', '~> 5.0'
 # Generates a URL slug/permalink based on fields
 gem 'mongoid-slug'
+# Adds enum support for Mongoid
+gem "mongoid-enum"
 
 # A set of responders modules to dry up your Rails 4.2+ app.
 gem "responders"
