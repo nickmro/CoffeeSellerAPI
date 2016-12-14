@@ -26,6 +26,9 @@ gem 'mongoid', '~> 5.0'
 # Generates a URL slug/permalink based on fields
 gem 'mongoid-slug'
 
+# A set of responders modules to dry up your Rails 4.2+ app.
+gem "responders"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
