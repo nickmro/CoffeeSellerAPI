@@ -6,7 +6,7 @@ class Product
   field :description, type: String
 
   ## Relations
-  belongs_to :product_type
+  belongs_to :product_type, foreign_key: :type
 
   ## Validations
   validates :sku, presence: true
