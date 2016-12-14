@@ -20,4 +20,10 @@ class CoffeePodTest < ActiveSupport::TestCase
     assert coffee_pod.errors.keys.include?(:type)
   end
 
+  test "A Coffee Pod must have a Pod Size" do
+    coffee_pod = CoffeePod.new
+    coffee_pod.save
+    assert coffee_pod.errors.keys.include?(:pod_size)
+  end
+
 end

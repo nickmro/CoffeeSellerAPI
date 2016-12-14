@@ -14,4 +14,10 @@ class CoffeeMachineTest < ActiveSupport::TestCase
     assert coffee_machine.errors.keys.include?(:type)
   end
 
+  test "A Coffee Machine must have a Pod Size" do
+    coffee_machine = CoffeeMachine.new
+    coffee_machine.save
+    assert coffee_machine.errors.keys.include?(:pod_size)
+  end
+
 end

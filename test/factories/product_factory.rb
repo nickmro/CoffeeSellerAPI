@@ -5,6 +5,7 @@ FactoryGirl.define do
     water_line_compatible false
     after(:build) do |product|
       product.type = create(:espresso_machine_product_type)
+      product.pod_size = create(:pod_size_small)
     end
   end
 
@@ -13,7 +14,8 @@ FactoryGirl.define do
     sku                   'CM102'
     water_line_compatible false
     after(:build) do |product|
-      product.type = create(:large_machine_product_type)
+      product.type     = create(:large_machine_product_type)
+      product.pod_size = create(:pod_size_small)
     end
   end
 end
