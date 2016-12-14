@@ -21,6 +21,11 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# Ruby ODM framework for MongoDB
+gem 'mongoid', '~> 5.0'
+# Generates a URL slug/permalink based on fields
+gem 'mongoid-slug'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -43,3 +48,9 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  # Fixtures replacement with a straightforward definition syntax
+  gem "factory_girl_rails"
+  # Strategies for cleaning databases in Ruby
+  gem "database_cleaner", github: "DatabaseCleaner/database_cleaner" # Mongoid 5.0
+end
