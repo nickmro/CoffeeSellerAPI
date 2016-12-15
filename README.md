@@ -37,7 +37,7 @@ For the ticketing application, I chose to use [Pivotal Tracker](https://www.pivo
 
 Before beginning a project, I like to document the model relationships represented by the application. This allows me to get a sense of the big picture, ruminate over how each of the pieces fit together, and identify any potential pitfalls before getting too deep into development.
 
-<div style="text-align: center; padding-top: 20px; padding-bottom: 30px;"><img src="https://raw.githubusercontent.com/nickmro/CoffeeSellerAPI/master/app/assets/images/data_models.png" /></div>
+<p align="center" style="padding-top: 20px; padding-botton: 30px;"><img src="https://raw.githubusercontent.com/nickmro/CoffeeSellerAPI/master/app/assets/images/data_models.png" /></p>
 
 Once I am satisfied with the model, I am ready to jump into development.
 
