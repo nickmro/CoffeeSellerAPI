@@ -4,7 +4,7 @@ This respository contains the source code for The Coffee Seller API, a REST API 
 
 Production application: http://coffeeseller.herokuapp.com/
 
-## About This Document
+### About This Document
 
 The following document - rather than serving as strict documentation - outlines my process of developing an application in order to lend some transparency into my development practices. You will find in it the steps that I followed to develop the application as well as some insight into my thought process.
 
@@ -34,6 +34,8 @@ For the ticketing application, I chose to use [Pivotal Tracker](https://www.pivo
 ### Data Models
 
 Before beginning a project, I like to document the model relationships represented by the application. This allows me to get a sense of the big picture, ruminate over how each of the pieces fit together, and identify any potential pitfalls before getting too deep into development.
+
+![alt tag](https://raw.githubusercontent.com/nickmro/CoffeeSellerAPI/master/app/assets/images/data_models.png)
 
 Once I am satisfied with the model, I am ready to jump into development.
 
@@ -67,6 +69,7 @@ Each endpoint is preceded by: `http://coffeeseller.herokuapp.com/api`
 | `/flavors/:flavor/coffee_pods` | returns a list of coffee pods for a given flavor (smallest quantity for type) |
 
 **Parameters**
+
 | Parameter | Description |
 |---|---|
 | `:sku` | the product SKU number |
@@ -74,6 +77,7 @@ Each endpoint is preceded by: `http://coffeeseller.herokuapp.com/api`
 | `:flavor` | the flavor slug |
 
 **Example Endpoints**
+
 | Description | Endpoint |
 |---|---|
 | All products| http://coffeeseller.herokuapp.com/api/products/ |
