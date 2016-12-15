@@ -6,6 +6,15 @@ This respository contains the source code for The Coffee Seller API, a REST API 
 
 Production application: http://coffeeseller.herokuapp.com/
 
+1. [About This Document](#about-this-document)
+2. [The Scenario](#the-scenario)
+3. [User Stories](#user-stories)
+4. [Data Models](#data-models)
+5. [The Project](#the-project)
+6. [Testing](#testing)
+7. [Using the application](#using-the-application)
+8. [Setup](#setup)
+
 ### About This Document
 
 The following document - rather than serving as strict documentation - outlines my process of developing an application in order to lend some transparency into my development practices. You will find in it the steps that I followed to develop the application as well as some insight into my thought process.
@@ -27,7 +36,8 @@ Based on these requirements, I identified four user stories that need to be fulf
 1. As a user I should be able to view a product by SKU
 2. As a user I should be able to view a list of all items of a product type
 3. As a user I should be able to view all coffee pods with a given flavor
-4. As a user I should see a list of related items for each product
+4. As a user I should be able to view all coffee pods with a given flavor and product type
+5. As a user I should see a list of related items for each product
     - Related items for a coffee pod are defined as all machines that can load that coffee pod
     - Related items for a coffee machine are defines as the smallest quantity pack of all pods that can be loaded into that machine
 
@@ -43,12 +53,10 @@ Once I am satisfied with the model, I am ready to jump into development.
 
 ### The Project
 
-For this project, I decided to build a Ruby on Rails REST API application. Providing an interface to the application's back end can be beneficial for many reasons, most notably:
+For this project, I decided to build a Ruby on Rails REST API application with a MongoDB database. Providing an interface to the application's back end can be beneficial for many reasons, notably:
 
 1. We can use the same interface for multiple platforms. That means we can use it for a web application, an iOS application, or an Android application, among others.
 2. We can, eventually, open up this interface to third parties who may then display the company's catalogue in their own applications, and consequently, reach a wider audience.
-
-The data is represented in JSON format.
 
 ### Testing
 
@@ -86,3 +94,35 @@ Each endpoint is preceded by: `http://coffeeseller.herokuapp.com/api`
 | Small Coffee Pod, 3 dozen, PSL | http://coffeeseller.herokuapp.com/api/products/CP023 |
 | All large coffee machines | http://coffeeseller.herokuapp.com/api/product_types/coffee-machine-large/products |
 | All hazelnut coffee pods (smallest quantity per type) | http://coffeeseller.herokuapp.com/api/flavors/hazelnut/coffee_pods |
+
+### Setup
+
+1. Clone the repo
+```
+git clone git@github.com:nickmro/CoffeeSellerAPI.git
+```
+
+2. Navigate to project directory
+```
+cd CoffeeSellerAPI
+```
+
+3. Install dependencies
+```
+bundle installl
+```
+
+4. Seed the database
+```
+rake db:seed
+```
+
+5. Run the server
+```
+rails s
+```
+
+6. Run a MongoDB instance
+```
+mongod
+```
