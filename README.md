@@ -76,6 +76,7 @@ Each endpoint is preceded by: `http://coffeeseller.herokuapp.com/api`
 | `/products/` | returns a list of all available products |
 | `/products/:sku` | returns the product for a given sku |
 | `/product_types/:product_type/products` | returns a list of a product type's products |
+| `/product_types/:product_type/flavors/:flavor/coffee_pods` | returns a list of coffee pods with a given product type and flavor |
 | `/flavors/:flavor/coffee_pods` | returns a list of coffee pods for a given flavor (smallest quantity for type) |
 
 **Parameters**
@@ -93,6 +94,7 @@ Each endpoint is preceded by: `http://coffeeseller.herokuapp.com/api`
 | All products| http://coffeeseller.herokuapp.com/api/products/ |
 | Small Coffee Pod, 3 dozen, PSL | http://coffeeseller.herokuapp.com/api/products/CP023 |
 | All large coffee machines | http://coffeeseller.herokuapp.com/api/product_types/coffee-machine-large/products |
+| All vanilla espresso pods (smallest quantity) | http://coffeeseller.herokuapp.com/api/product_types/espresso-pod/flavors/vanilla/coffee_pods |
 | All hazelnut coffee pods (smallest quantity per type) | http://coffeeseller.herokuapp.com/api/flavors/hazelnut/coffee_pods |
 
 ### Setup
@@ -102,7 +104,7 @@ Each endpoint is preceded by: `http://coffeeseller.herokuapp.com/api`
 git clone git@github.com:nickmro/CoffeeSellerAPI.git
 ```
 
-2. Navigate to project directory
+2. Navigate to the project directory
 ```
 cd CoffeeSellerAPI
 ```
