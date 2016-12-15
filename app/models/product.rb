@@ -6,7 +6,7 @@ class Product
   field :description, type: String
 
   ## Relations
-  belongs_to :type, class_name: "ProductType"
+  belongs_to :type, class_name: "ProductType", inverse_of: :products
 
   ## Validations
   validates :sku, presence: true, uniqueness: true
@@ -17,6 +17,7 @@ class Product
 
   def related_items
     # abstract
+    []
   end
 
   def to_product_json

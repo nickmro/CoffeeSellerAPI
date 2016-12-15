@@ -5,6 +5,9 @@ class ProductType
   ## Attributes
   field :name, type: String
 
+  ## Relations
+  has_many :products, inverse_of: :type
+
   ## Slug
   slug :name
 

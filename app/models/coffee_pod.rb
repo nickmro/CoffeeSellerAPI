@@ -2,7 +2,7 @@ class CoffeePod < Product
   include Mongoid::Document
 
   ## Relations
-  belongs_to :flavor
+  belongs_to :flavor, inverse_of: :coffee_pods
   belongs_to :pack_size
   belongs_to :pod_size
 

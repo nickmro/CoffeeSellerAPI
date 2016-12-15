@@ -16,9 +16,10 @@ class Api::V1::ProductsController < ApplicationController
   def filter_products(products, params)
     if params[:product_type_slug]
       product_type = ProductType.find(params[:product_type_slug])
-      products = products.select { |product| product.type == product_type }
+      return product_type.products
+    else
+      return Product.all
     end
-    products
   end
 
 end
