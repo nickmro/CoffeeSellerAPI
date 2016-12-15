@@ -2,7 +2,7 @@ class Api::V1::ProductsController < ApplicationController
   respond_to :json
 
   def index
-    @products = filter_products(Product.all, params)
+    @products = products params: params
     render json: @products.to_json
   end
 
@@ -13,7 +13,8 @@ class Api::V1::ProductsController < ApplicationController
 
   private
 
-  def filter_products(products, params)
+  def products(args)
+    params = args[:params]
     if params[:product_type_slug]
       product_type = ProductType.find(params[:product_type_slug])
       return product_type.products
