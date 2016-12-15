@@ -1,14 +1,14 @@
 class Api::V1::ProductsController < ApplicationController
   respond_to :json
 
-  def show
-    @product = Product.find_by(sku: params[:sku])
-    render json: @product.to_json
-  end
-
   def index
     @products = filter_products(Product.all, params)
     render json: @products.to_json
+  end
+
+  def show
+    @product = Product.find_by(sku: params[:sku])
+    render json: @product.to_product_json
   end
 
   private

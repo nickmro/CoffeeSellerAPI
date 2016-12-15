@@ -13,4 +13,16 @@ class Product
   validates :description, presence: true
   validates :type, presence: true
 
+  ## Methods
+
+  def related_items
+    # abstract
+  end
+
+  def to_product_json
+    self.to_json({
+      :methods => :related_items
+    })
+  end
+
 end
