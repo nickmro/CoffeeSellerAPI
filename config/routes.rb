@@ -9,6 +9,10 @@ Rails.application.routes.draw do
 
       resources :product_types, :only => [], param: :slug do
         resources :products, :only => [:index]
+
+        resources :flavors, :only => [], param: :slug do
+          resources :coffee_pods, :only => [:index]
+        end
       end
 
       resources :flavors, :only => [], param: :slug do

@@ -50,4 +50,33 @@ class Api::V1::CoffeePodsControllerTest < ActionController::TestCase
     assert response_skus.include?(@large_coffee_pod_3_dozen_hazelnut.sku)
     assert_not response_skus.include?(@espresso_pod_5_dozen_caramel.sku)
   end
+
+  test "GET #index WHEN Product Type AND Flavor are provided should only show Coffee Pods of that type and flavor" do
+    vanilla = FactoryGirl.create(:vanilla)
+    caramel = FactoryGirl.create(:caramel)
+
+    pack_size_small = FactoryGirl.create(:pack_size_1_dozen)
+    pack_size_large = FactoryGirl.create(:pack_size_3_dozen)
+    coffee_pod_large = FactoryGirl.create(:coffee_pod_large)
+    coffee_pod_small = FactoryGirl.create(:coffee_pod_small)
+
+    @small_coffee_pod_3_dozen_vanilla.update(flavor: vanilla)
+    @large_coffee_pod_3_dozen_hazelnut.update(flavor: vanilla)
+    @espresso_pod_5_dozen_caramel.update(flavor: caramel)
+
+    @small_coffee_pod_3_dozen_vanilla.update(pack_size: pack_size_small)
+    @large_coffee_pod_3_dozen_hazelnut.update(pack_size: pack_size_large)
+    @espresso_pod_5_dozen_caramel.update(pack_size: pack_size_large)
+
+    @small_coffee_pod_3_dozen_vanilla.update(type: coffee_pod_small)
+    @large_coffee_pod_3_dozen_hazelnut.update(type: coffee_pod_large)
+    @espresso_pod_5_dozen_caramel.update(type: coffee_pod_small)
+
+    get :index, product_type_slug: @small_coffee_pod_3_dozen_vanilla.type, flavor_slug: @small_coffee_pod_3_dozen_vanilla.flavor
+    coffee_pods_response = JSON.parse(response.body, symbolize_names: true)
+    response_skus = coffee_pods_response.map { |pod| pod[:sku] }
+    assert response_skus.include?(@small_coffee_pod_3_dozen_vanilla.sku)
+    assert_not response_skus.include?(@large_coffee_pod_3_dozen_hazelnut.sku)
+    assert_not response_skus.include?(@espresso_pod_5_dozen_caramel.sku)
+  end
 end
