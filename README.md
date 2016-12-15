@@ -1,3 +1,5 @@
+<img src="http://res.freestockphotos.biz/pictures/16/16192-illustration-of-a-hot-cup-of-coffee-pv.png" align="right" width="60px">
+
 # Coffee Seller API
 
 This respository contains the source code for The Coffee Seller API, a REST API that serves up data on a generic coffee seller's products.
@@ -35,7 +37,7 @@ For the ticketing application, I chose to use [Pivotal Tracker](https://www.pivo
 
 Before beginning a project, I like to document the model relationships represented by the application. This allows me to get a sense of the big picture, ruminate over how each of the pieces fit together, and identify any potential pitfalls before getting too deep into development.
 
-![alt tag](https://raw.githubusercontent.com/nickmro/CoffeeSellerAPI/master/app/assets/images/data_models.png)
+<div style="test-align: center"><img src="https://raw.githubusercontent.com/nickmro/CoffeeSellerAPI/master/app/assets/images/data_models.png" /></div>
 
 Once I am satisfied with the model, I am ready to jump into development.
 
