@@ -39,4 +39,10 @@ class Api::V1::ProductsControllerTest < ActionController::TestCase
     assert_equal @product.sku, product_response[:sku]
   end
 
+  test "GET #show should include related items in its response" do
+    get :show, sku: @product.sku
+    product_response = JSON.parse(response.body, symbolize_names: true)
+    assert product_response.keys.include?(:related_items)
+  end
+
 end
